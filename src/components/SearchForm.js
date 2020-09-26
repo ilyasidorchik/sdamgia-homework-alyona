@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 
 const SearchForm = () => {
   const [value, setValue] = useState("");
 
-  const handleChange = (e) => {
+  const handleChange = useCallback((e) => {
     setValue(e.target.value);
-  };
+  }, []);
 
   return (
     <form>
