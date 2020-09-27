@@ -7,7 +7,7 @@ const SearchForm = () => {
     setValue(e.target.value);
   }, []);
 
-  const buttonIsPushed = useCallback(() => {
+  const handleClick = useCallback(() => {
     console.log(value);
   }, []);
 
@@ -19,7 +19,7 @@ const SearchForm = () => {
         value={value}
         onChange={handleChange}
       />
-      <button onClick={buttonIsPushed}>Поиск</button>
+      <button onClick={handleClick}>Поиск</button>
     </form>
   );
 };
