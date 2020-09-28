@@ -7,9 +7,13 @@ const SearchForm = () => {
     setValue(e.target.value);
   }, []);
 
-  const handleClick = useCallback(() => {
-    console.log(value);
-  }, [value]);
+  const handleClick = useCallback(
+    (e) => {
+      e.preventDefault();
+      console.log(value);
+    },
+    [value]
+  );
 
   return (
     <form>
