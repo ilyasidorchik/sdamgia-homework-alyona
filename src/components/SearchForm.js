@@ -9,7 +9,7 @@ const SearchForm = () => {
 
   const handleClick = useCallback(() => {
     console.log(value);
-  }, []);
+  }, [value]);
 
   return (
     <form>
