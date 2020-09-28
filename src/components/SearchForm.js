@@ -7,6 +7,14 @@ const SearchForm = () => {
     setValue(e.target.value);
   }, []);
 
+  const handleClick = useCallback(
+    (e) => {
+      e.preventDefault();
+      console.log(value);
+    },
+    [value]
+  );
+
   return (
     <form>
       <input
@@ -15,6 +23,7 @@ const SearchForm = () => {
         value={value}
         onChange={handleChange}
       />
+      <button onClick={handleClick}>Поиск</button>
     </form>
   );
 };
