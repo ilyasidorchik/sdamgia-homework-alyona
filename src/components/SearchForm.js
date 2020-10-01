@@ -10,6 +10,7 @@ const SearchForm = () => {
   const handleClick = useCallback(
     (e) => {
       e.preventDefault();
+
       fetch(
         `https://sdamgia-homework-backend.herokuapp.com/api/search?query=${value}`
       )
