@@ -14,7 +14,8 @@ const SearchForm = () => {
         `https://sdamgia-homework-backend.herokuapp.com/api/search?query=${value}`
       )
         .then((responce) => responce.json())
-        .then((data) => alert(data.subject.title + ", " + data.subject.name));
+        .then((data) => data.subject)
+        .then(({ name, title }) => alert(`${name}, ${title}`));
     },
     [value]
   );
