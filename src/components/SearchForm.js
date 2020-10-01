@@ -1,3 +1,4 @@
+import { data } from "autoprefixer";
 import React, { useCallback, useState } from "react";
 
 const SearchForm = () => {
@@ -8,15 +9,16 @@ const SearchForm = () => {
   }, []);
 
   const handleClick = useCallback(
-    (e) => {
+    async (e) => {
       e.preventDefault();
 
-      fetch(
+      let responce = await fetch(
         `https://sdamgia-homework-backend.herokuapp.com/api/search?query=${value}`
-      )
-        .then((responce) => responce.json())
-        .then((data) => data.subject)
-        .then(({ name, title }) => alert(`${name}, ${title}`));
+      );
+      let data = await responce.json();
+      let { name, title } = await data.subject;
+
+      alert(`${name}, ${title}`);
     },
     [value]
   );
