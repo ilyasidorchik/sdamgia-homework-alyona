@@ -10,7 +10,13 @@ const SearchForm = () => {
   const handleClick = useCallback(
     (e) => {
       e.preventDefault();
-      console.log(value);
+
+      fetch(
+        `https://sdamgia-homework-backend.herokuapp.com/api/search?query=${value}`
+      )
+        .then((responce) => responce.json())
+        .then((data) => data.subject)
+        .then(({ name, title }) => alert(`${name}, ${title}`));
     },
     [value]
   );
