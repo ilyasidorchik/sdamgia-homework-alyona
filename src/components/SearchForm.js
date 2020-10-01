@@ -1,4 +1,4 @@
-import React, { Suspense, useCallback, useState } from "react";
+import React, { useCallback, useState } from "react";
 
 const SearchForm = () => {
   const [value, setValue] = useState("");
@@ -10,14 +10,11 @@ const SearchForm = () => {
   const handleClick = useCallback(
     (e) => {
       e.preventDefault();
-      console.log(value);
       fetch(
         `https://sdamgia-homework-backend.herokuapp.com/api/search?query=${value}`
       )
         .then((responce) => responce.json())
-        .then((subject) =>
-          alert(subject.subject.title + ", " + subject.subject.name)
-        );
+        .then((data) => alert(data.subject.title + ", " + data.subject.name));
     },
     [value]
   );
