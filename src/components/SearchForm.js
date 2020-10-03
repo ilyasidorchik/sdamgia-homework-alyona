@@ -2,21 +2,22 @@ import React, { useCallback, useState } from "react";
 
 const SearchForm = () => {
   const [value, setValue] = useState("");
+  const [ref, setRef] = useState("");
 
   const handleChange = useCallback((e) => {
     setValue(e.target.value);
   }, []);
 
   const handleClick = useCallback(
-    (e) => {
+    async (e) => {
       e.preventDefault();
 
-      fetch(
+      const response = await fetch(
         `https://sdamgia-homework-backend.herokuapp.com/api/search?query=${value}`
-      )
-        .then((responce) => responce.json())
-        .then((data) => data.subject)
-        .then(({ name, title }) => alert(`${name}, ${title}`));
+      );
+      const data = await response.json();
+      const { name, title } = await data.subject;
+      setRef(`https://${name}-ege.sdamgia.ru/`);
     },
     [value]
   );
@@ -30,6 +31,7 @@ const SearchForm = () => {
         onChange={handleChange}
       />
       <button onClick={handleClick}>Поиск</button>
+      <div> {reeef} </div>
     </form>
   );
 };
