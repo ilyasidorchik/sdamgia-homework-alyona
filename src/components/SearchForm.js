@@ -2,7 +2,6 @@ import React, { useCallback, useState } from "react";
 
 const SearchForm = () => {
   const [value, setValue] = useState("");
-
   const [subject, setSubject] = useState({
     name: "",
     title: "",
@@ -23,9 +22,8 @@ const SearchForm = () => {
       const { name, title } = await data.subject;
 
       setSubject({
-        ...subject,
-        name: name,
-        title: title,
+        name,
+        title,
       });
     },
     [value]
@@ -42,13 +40,14 @@ const SearchForm = () => {
         />
         <button onClick={handleClick}>Поиск</button>
       </form>
-      <div>
-        {subject && (
+
+      {subject && (
+        <div>
           <a href={`https://${subject.name}-ege.sdamgia.ru/`}>
             {subject.title}
           </a>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };
