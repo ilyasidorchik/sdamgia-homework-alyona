@@ -2,8 +2,11 @@ import React, { useCallback, useState } from "react";
 
 const SearchForm = () => {
   const [value, setValue] = useState("");
-  const [refName, setRefName] = useState("");
-  const [refTitle, setRefTitle] = useState("");
+
+  const [subject, setSubject] = useState({
+    name: "",
+    title: "",
+  });
 
   const handleChange = useCallback((e) => {
     setValue(e.target.value);
@@ -18,8 +21,12 @@ const SearchForm = () => {
       );
       const data = await response.json();
       const { name, title } = await data.subject;
-      setRefName(`https://${name}-ege.sdamgia.ru/`);
-      setRefTitle(title);
+
+      setSubject({
+        ...subject,
+        name: name,
+        title: title,
+      });
     },
     [value]
   );
@@ -36,7 +43,11 @@ const SearchForm = () => {
         <button onClick={handleClick}>Поиск</button>
       </form>
       <div>
-        <a href={refName}>{refTitle}</a>
+        {subject && (
+          <a href={`https://${subject.name}-ege.sdamgia.ru/`}>
+            {subject.title}
+          </a>
+        )}
       </div>
     </div>
   );
