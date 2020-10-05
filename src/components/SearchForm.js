@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from "react";
+import Subject from "./Subject";
 
 const SearchForm = () => {
   const [value, setValue] = useState("");
@@ -40,14 +41,7 @@ const SearchForm = () => {
         />
         <button onClick={handleClick}>Поиск</button>
       </form>
-
-      {subject && (
-        <div>
-          <a href={`https://${subject.name}-ege.sdamgia.ru/`}>
-            {subject.title}
-          </a>
-        </div>
-      )}
+      {subject && <Subject name={subject.name} title={subject.title} />}
     </div>
   );
 };
