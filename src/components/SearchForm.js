@@ -1,7 +1,13 @@
 import React, { useCallback, useState } from "react";
 
+import Subject from "./Subject";
+
 const SearchForm = () => {
   const [value, setValue] = useState("");
+  const [subject, setSubject] = useState({
+    name: "",
+    title: "",
+  });
 
   const handleChange = useCallback((e) => {
     setValue(e.target.value);
@@ -16,21 +22,28 @@ const SearchForm = () => {
       );
       const data = await response.json();
       const { name, title } = await data.subject;
-      alert(`${name}, ${title}`);
+
+      setSubject({
+        name,
+        title,
+      });
     },
     [value]
   );
 
   return (
-    <form>
-      <input
-        type="text"
-        placeholder="Search here"
-        value={value}
-        onChange={handleChange}
-      />
-      <button onClick={handleClick}>Поиск</button>
-    </form>
+    <div>
+      <form>
+        <input
+          type="text"
+          placeholder="Search here"
+          value={value}
+          onChange={handleChange}
+        />
+        <button onClick={handleClick}>Поиск</button>
+      </form>
+      {subject && <Subject name={subject.name} title={subject.title} />}
+    </div>
   );
 };
 
