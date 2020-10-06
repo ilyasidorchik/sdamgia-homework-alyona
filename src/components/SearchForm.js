@@ -33,14 +33,17 @@ const SearchForm = () => {
 
   return (
     <div>
-      <form>
+      <form className="search-form">
         <input
+          className="search-input"
           type="text"
           placeholder="Search here"
           value={value}
           onChange={handleChange}
         />
-        <button onClick={handleClick}>Поиск</button>
+        <button className="search-button" onClick={handleClick}>
+          Поиск
+        </button>
       </form>
       {subject && <Subject name={subject.name} title={subject.title} />}
     </div>
