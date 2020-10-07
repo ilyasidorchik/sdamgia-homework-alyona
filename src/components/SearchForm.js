@@ -44,7 +44,11 @@ const SearchForm = () => {
           value={value}
           onChange={handleChange}
         />
-        <button className={cnSearchForm('Button')} onClick={handleClick}>
+        <button
+          className={cnSearchForm('Button', { disabled: !value })}
+          disabled={!value}
+          onClick={handleClick}
+        >
           Поиск
         </button>
       </form>

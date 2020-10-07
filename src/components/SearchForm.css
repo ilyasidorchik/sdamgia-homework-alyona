@@ -13,3 +13,8 @@
   width: 80px;
   color: white;
 }
+
+.SearchForm-Button_disabled {
+  background-color: #ccc;
+  border-color: #ccc;
+}
