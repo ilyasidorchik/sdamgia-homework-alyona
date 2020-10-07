@@ -1,0 +1,14 @@
+.SearchInput {
+  border: 5px solid grey;
+  border-radius: 20px;
+  width: 200px;
+  height: 30px;
+}
+.SearchButton {
+  border: 5px solid royalblue;
+  background-color: royalblue;
+  border-radius: 20px;
+  height: 40px;
+  width: 80px;
+  color: white;
+}

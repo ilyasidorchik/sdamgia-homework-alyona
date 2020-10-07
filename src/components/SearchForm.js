@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from "react";
 
 import Subject from "./Subject";
+import "./SearchFormStyle.css";
 
 const SearchForm = () => {
   const [value, setValue] = useState("");
@@ -33,15 +34,15 @@ const SearchForm = () => {
 
   return (
     <div>
-      <form className="search-form">
+      <form className="SearchForm">
         <input
-          className="search-input"
+          className="SearchInput"
           type="text"
           placeholder="Search here"
           value={value}
           onChange={handleChange}
         />
-        <button className="search-button" onClick={handleClick}>
+        <button className="SearchButton" onClick={handleClick}>
           Поиск
         </button>
       </form>
