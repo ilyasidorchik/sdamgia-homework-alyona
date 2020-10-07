@@ -1,13 +1,13 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState } from 'react';
 
-import Subject from "./Subject";
-import "./SearchForm.css";
+import Subject from './Subject';
+import './SearchForm.css';
 
 const SearchForm = () => {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
   const [subject, setSubject] = useState({
-    name: "",
-    title: "",
+    name: '',
+    title: '',
   });
 
   const handleChange = useCallback((e) => {
@@ -36,13 +36,13 @@ const SearchForm = () => {
     <div>
       <form className="SearchForm">
         <input
-          className="SearchForm-SearchInput"
+          className="SearchForm-Input"
           type="text"
           placeholder="Search here"
           value={value}
           onChange={handleChange}
         />
-        <button className="SearchForm-SearchButton" onClick={handleClick}>
+        <button className="SearchForm-Button" onClick={handleClick}>
           Поиск
         </button>
       </form>
