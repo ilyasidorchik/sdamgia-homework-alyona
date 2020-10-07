@@ -1,9 +1,11 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState, useCallback } from 'react';
+import { cn } from '@bem-react/classname';
 
 import Subject from './Subject';
 import './SearchForm.css';
 
 const SearchForm = () => {
+  const cnSearchForm = cn('SearchForm');
   const [value, setValue] = useState('');
   const [subject, setSubject] = useState({
     name: '',
@@ -34,15 +36,15 @@ const SearchForm = () => {
 
   return (
     <div>
-      <form className="SearchForm">
+      <form className={cnSearchForm()}>
         <input
-          className="SearchForm-Input"
+          className={cnSearchForm('Input')}
           type="text"
           placeholder="Search here"
           value={value}
           onChange={handleChange}
         />
-        <button className="SearchForm-Button" onClick={handleClick}>
+        <button className={cnSearchForm('Button')} onClick={handleClick}>
           Поиск
         </button>
       </form>
