@@ -1,0 +1,20 @@
+.SearchForm-Input {
+  border: 5px solid grey;
+  border-radius: 20px;
+  width: 200px;
+  height: 30px;
+}
+
+.SearchForm-Button {
+  border: 5px solid royalblue;
+  background-color: royalblue;
+  border-radius: 20px;
+  height: 40px;
+  width: 80px;
+  color: white;
+}
+
+.SearchForm-Button_disabled {
+  background-color: #ccc;
+  border-color: #ccc;
+}
