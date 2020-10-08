@@ -1,0 +1,23 @@
+$radius: 20px;
+$activeButton: royalblue;
+$disabledButton: #ccc;
+.SearchForm-Input {
+  border: 5px solid grey;
+  border-radius: $radius;
+  width: 200px;
+  height: 30px;
+}
+
+.SearchForm-Button {
+  border: 5px solid $activeButton;
+  background-color: $activeButton;
+  border-radius: $radius;
+  height: 40px;
+  width: 80px;
+  color: white;
+}
+
+.SearchForm-Button_disabled {
+  background-color: $disabledButton;
+  border-color: $disabledButton;
+}
