@@ -1,15 +1,15 @@
-import React, { useState, useCallback } from 'react';
-import { cn } from '@bem-react/classname';
+import React, { useState, useCallback } from "react";
+import { cn } from "@bem-react/classname";
 
-import Subject from './Subject';
-import './SearchForm.css';
+import Subject from "./Subject";
+import "./SearchForm.scss";
 
 const SearchForm = () => {
-  const cnSearchForm = cn('SearchForm');
-  const [value, setValue] = useState('');
+  const cnSearchForm = cn("SearchForm");
+  const [value, setValue] = useState("");
   const [subject, setSubject] = useState({
-    name: '',
-    title: '',
+    name: "",
+    title: "",
   });
 
   const handleChange = useCallback((e) => {
@@ -38,14 +38,14 @@ const SearchForm = () => {
     <div>
       <form className={cnSearchForm()}>
         <input
-          className={cnSearchForm('Input')}
+          className={cnSearchForm("Input")}
           type="text"
           placeholder="Search here"
           value={value}
           onChange={handleChange}
         />
         <button
-          className={cnSearchForm('Button', { disabled: !value })}
+          className={cnSearchForm("Button", { disabled: !value })}
           disabled={!value}
           onClick={handleClick}
         >
