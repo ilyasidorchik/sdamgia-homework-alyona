@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 import { cn } from "@bem-react/classname";
-
+import  api  from "./Api";
 import Subject from "./Subject";
 import "./SearchForm.scss";
 
@@ -12,27 +12,28 @@ const SearchForm = () => {
     title: "",
   });
 
-  const handleChange = useCallback((e) => {
-    setValue(e.target.value);
-  }, []);
+  const useHelpers = () =>{    
+    return {
+       handleChange: useCallback((e) => {
+      setValue(e.target.value);
+    }, []),
+  
+    handleClick: useCallback(
+      async (e) => {
+        e.preventDefault(); 
+        const { name, title } = await api(value); 
+        setSubject({
+          name,
+          title,
+        });
+      },
+      [value]
+    )
+    }   
+  
+  };
 
-  const handleClick = useCallback(
-    async (e) => {
-      e.preventDefault();
-
-      const response = await fetch(
-        `https://sdamgia-homework-backend.herokuapp.com/api/search?query=${value}`
-      );
-      const data = await response.json();
-      const { name, title } = await data.subject;
-
-      setSubject({
-        name,
-        title,
-      });
-    },
-    [value]
-  );
+  const {handleChange, handleClick} = useHelpers(); 
 
   return (
     <div>
