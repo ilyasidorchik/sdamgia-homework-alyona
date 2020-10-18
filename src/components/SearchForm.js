@@ -1,8 +1,8 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import { cn } from "@bem-react/classname";
-import  api  from "./Api";
 import Subject from "./Subject";
 import "./SearchForm.scss";
+import useHelpers from "./useHelpers";
 
 const SearchForm = () => {
   const cnSearchForm = cn("SearchForm");
@@ -11,29 +11,10 @@ const SearchForm = () => {
     name: "",
     title: "",
   });
-
-  const useHelpers = () =>{    
-    return {
-       handleChange: useCallback((e) => {
-      setValue(e.target.value);
-    }, []),
-  
-    handleClick: useCallback(
-      async (e) => {
-        e.preventDefault(); 
-        const { name, title } = await api(value); 
-        setSubject({
-          name,
-          title,
-        });
-      },
-      [value]
-    )
-    }   
-  
-  };
-
-  const {handleChange, handleClick} = useHelpers(); 
+  const { handleChange, handleClick } = useHelpers(
+    [value, setValue],
+    [subject, setSubject]
+  );
 
   return (
     <div>
