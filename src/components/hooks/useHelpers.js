@@ -2,7 +2,7 @@ import { useCallback } from "react";
 
 import { getSearchResult } from "../api";
 
-const useHelpers = ([value, setValue], setSubject) => {
+export const useHelpers = (value, setValue, setSubject) => {
   const handleChange = useCallback((e) => {
     setValue(e.target.value);
   }, []);
@@ -24,4 +24,3 @@ const useHelpers = ([value, setValue], setSubject) => {
     handleClick,
   };
 };
-export default useHelpers;

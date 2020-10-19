@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { cn } from "@bem-react/classname";
 
-import useHelpers from "./hooks/useHelpers";
+import { useHelpers } from "./hooks/useHelpers";
 import Subject from "./Subject";
 import "./SearchForm.scss";
 
@@ -12,10 +12,7 @@ const SearchForm = () => {
     name: "",
     title: "",
   });
-  const { handleChange, handleClick } = useHelpers(
-    [value, setValue],
-    setSubject
-  );
+  const { handleChange, handleClick } = useHelpers(value, setValue, setSubject);
 
   return (
     <div>
