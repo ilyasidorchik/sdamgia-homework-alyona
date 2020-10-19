@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { cn } from "@bem-react/classname";
 
-import { useHelpers } from "./hooks/useHelpers";
+import { useHelpers } from "./hooks";
 import Subject from "./Subject";
 import "./SearchForm.scss";
 
