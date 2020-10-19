@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { cn } from "@bem-react/classname";
+
+import useHelpers from "./hooks/useHelpers";
 import Subject from "./Subject";
 import "./SearchForm.scss";
-import useHelpers from "./useHelpers";
 
 const SearchForm = () => {
   const cnSearchForm = cn("SearchForm");
@@ -13,7 +14,7 @@ const SearchForm = () => {
   });
   const { handleChange, handleClick } = useHelpers(
     [value, setValue],
-    [subject, setSubject]
+    setSubject
   );
 
   return (
