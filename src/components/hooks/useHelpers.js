@@ -3,9 +3,12 @@ import { useCallback } from "react";
 import { getSearchResult } from "../api";
 
 export const useHelpers = (value, setValue, setSubject) => {
-  const handleChange = useCallback((e) => {
-    setValue(e.target.value);
-  }, []);
+  const handleChange = useCallback(
+    (e) => {
+      setValue(e.target.value);
+    },
+    [setValue]
+  );
 
   const handleClick = useCallback(
     async (e) => {
@@ -16,7 +19,7 @@ export const useHelpers = (value, setValue, setSubject) => {
         title,
       });
     },
-    [value]
+    [value, setSubject]
   );
 
   return {
