@@ -1,8 +1,7 @@
 import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 
-import { fetchSubjectSuccess } from "../../../modules/subject";
-import { getSearchResult } from "../api";
+import { fetchSubject } from "../../../modules/subject";
 
 export const useHelpers = (value, setValue) => {
   const dispatch = useDispatch();
@@ -18,14 +17,7 @@ export const useHelpers = (value, setValue) => {
     async (e) => {
       e.preventDefault();
 
-      const { name, title } = await getSearchResult(value);
-
-      dispatch(
-        fetchSubjectSuccess({
-          name,
-          title,
-        })
-      );
+      dispatch(fetchSubject(value));
     },
     [dispatch, value]
   );
