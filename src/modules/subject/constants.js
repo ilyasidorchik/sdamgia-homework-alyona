@@ -1,0 +1,3 @@
+export const STORE_KEY = "SUBJECT";
+
+export const FETCH_SUBJECT_SUCCESS = `${STORE_KEY}/FETCH_SUBJECT_SUCCESS`;
