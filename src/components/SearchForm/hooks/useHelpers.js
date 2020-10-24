@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 
-import { fetchSubjectSuccess } from "../../modules/subject";
+import { fetchSubjectSuccess } from "../../../modules/subject";
 import { getSearchResult } from "../api";
 
 export const useHelpers = (value, setValue) => {

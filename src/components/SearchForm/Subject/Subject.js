@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import { selectSubject } from "../../modules/subject";
+import { selectSubject } from "../../../modules/subject";
 
 const Subject = () => {
   const subject = useSelector(selectSubject);

@@ -1,10 +1,16 @@
 import React from "react";
 
 import "./App.css";
-import SearchForm from "./components/SearchForm";
+import Header from "./components/Header/Header";
+import SearchForm from "./components/SearchForm/SearchForm";
 
 function App() {
-  return <SearchForm />;
+  return (
+    <div>
+      <Header />
+      <SearchForm />
+    </div>
+  );
 }
 
 export default App;
