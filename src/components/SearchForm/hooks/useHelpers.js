@@ -13,7 +13,7 @@ export const useHelpers = (value, setValue) => {
     [setValue]
   );
 
-  const handleClick = useCallback(
+  const handleSubmit = useCallback(
     async (e) => {
       e.preventDefault();
 
@@ -24,6 +24,6 @@ export const useHelpers = (value, setValue) => {
 
   return {
     handleChange,
-    handleClick,
+    handleSubmit,
   };
 };

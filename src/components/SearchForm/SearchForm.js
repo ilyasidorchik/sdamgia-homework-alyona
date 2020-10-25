@@ -9,11 +9,11 @@ const SearchForm = () => {
   const cnSearchForm = cn("SearchForm");
   const [value, setValue] = useState("");
 
-  const { handleChange, handleClick } = useHelpers(value, setValue);
+  const { handleChange, handleSubmit } = useHelpers(value, setValue);
 
   return (
     <div>
-      <form className={cnSearchForm()}>
+      <form className={cnSearchForm()} onSubmit={handleSubmit}>
         <input
           className={cnSearchForm("Input")}
           type="text"
@@ -24,7 +24,6 @@ const SearchForm = () => {
         <button
           className={cnSearchForm("Button", { disabled: !value })}
           disabled={!value}
-          onClick={handleClick}
         >
           Поиск
         </button>

@@ -7,6 +7,11 @@ export const fetchSubjectSuccess = (payload) => ({
   payload,
 });
 
+export const fetchSubjectError = (payload) => ({
+  type: constants.FETCH_SUBJECT_ERROR,
+  payload,
+});
+
 // Reducers
 const subject = (state = null, action) => {
   switch (action.type) {
@@ -28,5 +33,12 @@ export const fetchSubject = (value) => async (dispatch) => {
     })
   );
 };
+
+try {
+  getSearchResult();
+  console.log("я тут");
+} catch (err) {
+  err.dispatch(fetchSubjectError(err.name, err.message));
+}
 
 export default subject;
