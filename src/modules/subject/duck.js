@@ -32,13 +32,12 @@ export const fetchSubject = (value) => async (dispatch) => {
       title,
     })
   );
-};
 
-try {
-  getSearchResult();
-  console.log("я тут");
-} catch (err) {
-  err.dispatch(fetchSubjectError(err.name, err.message));
-}
+  try {
+    getSearchResult();
+  } catch (err) {
+    dispatch(fetchSubjectError(err));
+  }
+};
 
 export default subject;

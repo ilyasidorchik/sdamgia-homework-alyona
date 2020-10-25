@@ -7,11 +7,11 @@ const Footer = () => {
   const subject = useSelector(selectSubject);
 
   return (
-    <header>
+    <footer>
       {subject && (
         <span> «{subject.title}» очень важный для тебя предмет! </span>
       )}
-    </header>
+    </footer>
   );
 };
 
