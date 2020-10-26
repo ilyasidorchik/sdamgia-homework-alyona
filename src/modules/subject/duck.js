@@ -1,7 +1,7 @@
 import * as constants from "./constants";
 import { getSearchResult } from "./api";
 
-// Actions
+// Actions creators
 export const fetchSubjectSuccess = (payload) => ({
   type: constants.FETCH_SUBJECT_SUCCESS,
   payload,
@@ -24,17 +24,14 @@ const subject = (state = null, action) => {
 
 // Thunks
 export const fetchSubject = (value) => async (dispatch) => {
-  const { name, title } = await getSearchResult(value);
-
-  dispatch(
-    fetchSubjectSuccess({
-      name,
-      title,
-    })
-  );
-
   try {
-    getSearchResult();
+    const { name, title } = await getSearchResult(value);
+    dispatch(
+      fetchSubjectSuccess({
+        name,
+        title,
+      })
+    );
   } catch (err) {
     dispatch(fetchSubjectError(err));
   }
