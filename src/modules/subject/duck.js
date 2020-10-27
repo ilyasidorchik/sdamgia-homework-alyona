@@ -1,7 +1,7 @@
 import * as constants from "./constants";
 import { getSearchResult } from "./api";
 
-// Actions creators
+// Action creators
 export const fetchSubjectSuccess = (payload) => ({
   type: constants.FETCH_SUBJECT_SUCCESS,
   payload,
