@@ -2,21 +2,18 @@ import React, { useState } from "react";
 import { cn } from "@bem-react/classname";
 
 import { useHelpers } from "./hooks";
-import Subject from "./Subject";
+import Subject from "./Subject/Subject";
 import "./SearchForm.scss";
 
 const SearchForm = () => {
   const cnSearchForm = cn("SearchForm");
   const [value, setValue] = useState("");
-  const [subject, setSubject] = useState({
-    name: "",
-    title: "",
-  });
-  const { handleChange, handleClick } = useHelpers(value, setValue, setSubject);
+
+  const { handleChange, handleSubmit } = useHelpers(value, setValue);
 
   return (
     <div>
-      <form className={cnSearchForm()}>
+      <form className={cnSearchForm()} onSubmit={handleSubmit}>
         <input
           className={cnSearchForm("Input")}
           type="text"
@@ -27,12 +24,11 @@ const SearchForm = () => {
         <button
           className={cnSearchForm("Button", { disabled: !value })}
           disabled={!value}
-          onClick={handleClick}
         >
           Поиск
         </button>
       </form>
-      {subject && <Subject name={subject.name} title={subject.title} />}
+      <Subject />
     </div>
   );
 };
