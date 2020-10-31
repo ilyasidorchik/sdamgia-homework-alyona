@@ -3,14 +3,13 @@ import { cn } from "@bem-react/classname";
 
 import "./Button.scss";
 
-export interface ButtonInterface {
-  disabled: boolean;
+export interface IButtonProps {
   className?: string;
+  disabled: boolean;
 }
 
-export const Button = ({ className, disabled }: ButtonInterface) => {
+export const Button: React.FC<IButtonProps> = ({ className, disabled }) => {
   const cnButton = cn("Button");
-  console.log(className);
 
   return (
     <button className={cnButton({ disabled }, [className])} disabled={disabled}>
