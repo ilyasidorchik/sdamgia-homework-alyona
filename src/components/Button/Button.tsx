@@ -1,4 +1,4 @@
-import React, { FC, FunctionComponent } from "react";
+import React, { FC } from "react";
 import { cn } from "@bem-react/classname";
 
 import "./Button.scss";
